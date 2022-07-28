@@ -17,7 +17,7 @@ function toggleDesktopMenu() {
 
 function toggleMobileMenu() {
   menuShoppingCar.classList.add('inactive');
-  menuMobile.classList.toggle('menu');
+  menuMobile.classList.toggle('inactive');
 }
 
 function toggleCarMenu(){
