@@ -4,7 +4,8 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const menuMobile = document.querySelector('.mobile-menu');
 const shoppingCar = document.querySelector('.navbar-shopping-cart');
-const menuShoppingCar = document.querySelector('.product-detail')
+const menuShoppingCar = document.querySelector('.product-detail');
+const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click",toggleMobileMenu)
@@ -26,3 +27,51 @@ function toggleCarMenu(){
   menuShoppingCar.classList.toggle('inactive')
 }
 
+const productList = [];
+
+productList.push({
+  name: "bike",
+  price: 120,
+  Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+})
+productList.push({
+  name: "book",
+  price: 120,
+  Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+})
+productList.push({
+  name: "bee",
+  price: 120,
+  Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+})
+
+for (product of productList){
+  const productCard = document.createElement('div');
+  productCard.classList.add('product-card');
+
+  const img = document.createElement('img');
+  img.setAttribute('src', product.Image);
+
+  const productInfo = document.createElement('div');
+  productInfo.classList.add('product-info');
+
+  const productInfoDiv =document.createElement('div');
+
+  const productPrice = document.createElement('p');
+  productPrice.innerText = '$'+product.price;
+
+  const productName = document.createElement('p');
+  productName.append(product.name);
+
+  const productFigure = document.createElement('figure');
+  const productImgCard = document.createElement('img');
+  img.setAttribute('src', './icons/bt_add_to_cart.svg');
+
+  productFigure.appendChild(productImgCard);
+
+  productInfo.append(productInfoDiv,productFigure);
+
+  productCard.append(img,productInfo);
+
+  cardsContainer.appendChild(productCard);
+}
